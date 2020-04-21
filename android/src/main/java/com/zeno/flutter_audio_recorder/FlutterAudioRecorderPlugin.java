@@ -166,7 +166,7 @@ public class FlutterAudioRecorderPlugin implements MethodCallHandler, PluginRegi
 
   private void handleCurrent(MethodCall call, Result result) {
     HashMap<String, Object> currentResult = new HashMap<>();
-    currentResult.put("duration", getDuration() * 1000);
+    currentResult.put("duration", getDuration());
     currentResult.put("path", (mStatus == "stopped")? mFilePath : getTempFilename());
     currentResult.put("audioFormat", mExtension);
     currentResult.put("peakPower", mPeakPower);
@@ -401,7 +401,7 @@ public class FlutterAudioRecorderPlugin implements MethodCallHandler, PluginRegi
   }
 
   private int getDuration(){
-    long duration = mDataSize / (mSampleRate * 2 * 1);
+    long duration = mDataSize * 1000 / (mSampleRate * 2 * 1);
     return (int)duration;
   }
 }
