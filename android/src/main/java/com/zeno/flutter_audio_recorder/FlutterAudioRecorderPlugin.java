@@ -35,7 +35,7 @@ public class FlutterAudioRecorderPlugin implements MethodCallHandler, PluginRegi
   private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 200;
   private static final byte RECORDER_BPP = 16; // we use 16bit
   private Registrar registrar;
-  private int mSampleRate = 16000; // 16Khz
+  private int mSampleRate = 44100; // 44.1 kHz
   private AudioRecord mRecorder = null;
   private String mFilePath;
   private String mExtension;
